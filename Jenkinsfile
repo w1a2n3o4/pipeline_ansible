@@ -9,18 +9,18 @@ pipeline {
                 echo 'End of Ansible ping'
             }
         }
-        stage('2-Test') {
+        stage('Configuration and Deployment') {
             steps {
-                echo 'Start of Stage Test'
-                echo 'Testing............'
-                echo 'End of Stage Testiong'
+                echo 'Start of Configuration and Deployment'
+                sh "ansible-playbook playbook-php-istall.yml"
+                echo 'End of Configuration and Deployment'
             }
         }
-         stage('3-Deploy') {
+         stage('Configuration Testing') {
             steps {
-                echo 'Start of Stage Deploy'
-                echo 'Deploying............'
-                echo 'End of Stage Deploying'
+                echo 'Start of Configuration Testing'
+                sh "php -v"
+                echo 'End of Configuration Testing'
             }
         }
     }
