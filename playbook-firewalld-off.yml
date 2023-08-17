@@ -1,0 +1,9 @@
+---
+- name : Firewalld off
+  hosts: test
+  become: yes
+
+  tasks:
+  
+  - name: Start firewalld and Enable it on the every boot
+    service: name=firewalld state=stopped enabled=yes    

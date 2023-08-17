@@ -1,0 +1,12 @@
+#by Ivan Neliub
+---
+- name : Install nginx rhel
+  hosts: test
+  become: yes
+
+  tasks:
+  - name: Install nginx
+    yum:  name=nginx state=latest
+  
+  - name: Start ngix and Enable it on the every boot
+    service: name=nginx state=started enabled=yes    

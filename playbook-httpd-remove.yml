@@ -1,0 +1,9 @@
+---
+- name : Remove Apache WebServer on test group
+  hosts: test
+  become: yes
+
+  tasks:
+  - name: Remove Apache
+    yum:  name=httpd state=absent
+    

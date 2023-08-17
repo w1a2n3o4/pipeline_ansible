@@ -1,0 +1,8 @@
+---
+- name : Install Ranger for rhel
+  hosts: test
+  become: yes
+
+  tasks:
+  - name: Install neofetch
+    yum:  name=ranger state=latest

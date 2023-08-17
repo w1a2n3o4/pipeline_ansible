@@ -1,0 +1,11 @@
+---
+- name : Install Apache WebServer on test group
+  hosts: test
+  become: yes
+
+  tasks:
+  - name: Install Apache
+    yum:  name=httpd state=latest
+  
+  - name: Start Apache and Enable it on the every boot
+    service: name=httpd state=started enabled=yes    

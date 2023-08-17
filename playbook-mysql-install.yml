@@ -1,0 +1,15 @@
+---
+- name : Install mysql on rhel
+  hosts: test
+  become: yes
+
+  tasks:
+  - name: Install mysql mysql-server
+    yum:  pkg={{ item }} state=latest
+    with_items:
+      - mysql
+      - mysql-server
+
+  - name: Start mysql and Enable it on the every boot
+    service: name=mysqld state=started enabled=yes
+      

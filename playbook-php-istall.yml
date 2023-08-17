@@ -1,0 +1,14 @@
+---
+- name : Install php on rhel
+  hosts: test
+  become: yes
+
+  tasks:
+  - name: Install php
+    yum:  pkg={{ item }} state=latest
+    with_items:
+      - php
+
+  - name: Start mysql and Enable it on the every boot
+    service: name=php-fpm state=started enabled=yes
+      

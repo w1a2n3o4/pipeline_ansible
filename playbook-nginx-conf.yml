@@ -1,0 +1,12 @@
+# by Neluyb Ivan
+---
+- name : Install nginx rhel
+  hosts: test
+  become: yes
+
+  tasks:
+  - name: Config nginx
+    copy: src=./index.html dest=/usr/share/nginx/html/index.html  
+  
+  - name: Start ngix and Enable it on the every boot
+    service: name=nginx state=restarted enabled=yes    

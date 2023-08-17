@@ -1,0 +1,8 @@
+---
+- name : Install neofetch for rhel
+  hosts: rhel
+  become: yes
+
+  tasks:
+  - name: Install neofetch
+    yum:  name=neofetch state=latest

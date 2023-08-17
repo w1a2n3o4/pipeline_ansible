@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('1-Build') {
+        stage('Testing connection') {
             steps {
-                echo 'Start of Stage Build'
-                echo 'Building............'
-                echo 'End of Stage Build'
+                echo 'Start of Ansible ping'
+                sh "ansible -m ping all"
+                echo 'End of Ansible ping'
             }
         }
         stage('2-Test') {
